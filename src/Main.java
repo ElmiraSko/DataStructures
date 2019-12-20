@@ -1,6 +1,6 @@
 public class Main {
 
-    static int[] myArr = new int[100000];
+    static int[] myArr = new int[1000000];
 
     public static void main(String[] args) {
 
