@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 /*
-Дерево двоичного поиска.
+Двоичное дерево поиска. (Исправила ошибку)
 Изменила метод isBalance, теперь несбалансированных деревьев в среднем получается 55 % - 80 %
 */
 public class Main {
