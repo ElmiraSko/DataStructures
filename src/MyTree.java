@@ -86,10 +86,10 @@ private int leftNodeLevel(Node current) {
         }
         return 0;
     }
-  // Логическое значение
+  // Логическое значение. Если balance(node) < 2, т.е. разн. == 1, то несбалан-х 95 проц.
 public boolean isBalance(Node node) {
     if (node!= null){ // если проверяемый узел не null, проверяем разность уровней слева и справа.
-        if (balance(node) < 3){ // если разн. взять = 2, то получается 55 - 70 проц. несбалансированных деревьев
+        if (balance(node) < 2){ // если разн. взять = 2, то получается 55 - 70 проц. несбалансированных деревьев
             isBalance(node.leftChild);
             isBalance(node.rightChild);
         }
