@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Random;
 /*
 Дерево двоичного поиска.
-Если логика верна, то несбалансированных деревьев в среднем получается 45 % - 50 %
+Изменила метод isBalance, теперь несбалансированных деревьев в среднем получается 55 % - 80 %
 */
 public class Main {
     public static void main(String[] args) {
@@ -21,6 +21,7 @@ public class Main {
             }
             listTree.add(tree);
         }
+
 
         for (MyTree tree: listTree) {
             boolean b = tree.isBalance(tree.getRoot());

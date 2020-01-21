@@ -1,6 +1,7 @@
 
 public class MyTree {
     private Node root; // ссылка на корневой элемент
+    private boolean bal = true; // изначально сбалансированное
 
 
     public boolean isEmpty() { // true - если пустое дерево
@@ -87,14 +88,16 @@ private int leftNodeLevel(Node current) {
     }
   // Логическое значение
 public boolean isBalance(Node node) {
-    if (node!= null){
-        if (balance(node) < 2){
+    if (node!= null){ // если проверяемый узел не null, проверяем разность уровней слева и справа.
+        if (balance(node) < 3){ // если разн. взять = 2, то получается 55 - 70 проц. несбалансированных деревьев
             isBalance(node.leftChild);
             isBalance(node.rightChild);
         }
-        else return false;
+        else {
+            bal = false;
+        }
     }
-    return true;
+    return bal;
 }
 
     // Нахождение минимального ключа (дерево не пустое)
