@@ -72,15 +72,17 @@ public class ChainingHashMap<Key, Value> {
         return null;
     }
 // удаление по ключу
-    public void remove(Key key) {
+    public Value remove(Key key) {
         isKeyNotNull(key);
         int i = hash(key);
+        Value value;
         for (int j = 0; j < st[i].size(); j++) {
             Node current = st[i].get(j);
             if (current.key.equals(key)) {
+                value = current.value;
                 st[i].remove(current);
                 size--;
-                return;
+                return value;
             }
         }
         throw new NoSuchElementException("Нет такого элемента!");

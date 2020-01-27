@@ -22,7 +22,8 @@ public class Main {
             map.put(random.nextInt(1000), "");
         }
         System.out.println(map);
-        map.remove(1);
+        String s = map.remove(1);
+        System.out.println("Удалили " + s);
         map.remove(3);
         map.remove(5);
         System.out.println("После удаления 1, 3 и 5");
@@ -47,10 +48,13 @@ public class Main {
             map2.put(random2.nextInt(1000), "");
         }
         System.out.println(map2);
+
 // удалили элементы с ключами 3 и 5
         map2.remove(3);
-        map2.remove(5);
+        String str = map2.remove(5);
+        System.out.println("Удалили " + str);
         System.out.println(map2);
+
 // пытаемся получить элемент с ключом 5
         System.out.println(map2.get(5));
 

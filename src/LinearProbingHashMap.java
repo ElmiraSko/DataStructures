@@ -1,3 +1,4 @@
+import java.util.NoSuchElementException;
 
 public class LinearProbingHashMap<Key, Value> {
     private int capacity = 97;
@@ -5,6 +6,7 @@ public class LinearProbingHashMap<Key, Value> {
 
     private Key[] keys = (Key[]) new Object[capacity];
     private Value[] values = (Value[]) new Object[capacity];
+
     private int[] mark = new int[capacity]; // 0-пустая ячека, 1-непустая, -1 -при удалении
 
     public int size() {
@@ -62,16 +64,20 @@ public class LinearProbingHashMap<Key, Value> {
         return null;
     }
 // удаление по ключу
-    public void remove(Key key) {
+    public Value remove(Key key) {
         isKeyNotNull(key);
+        Value value;
         int i;
-        for (i = hash(key); keys[i] != null; i = (i + 1) % capacity) {
+        for (i = hash(key); keys[i] != null && mark[i] !=-1; i = (i + 1) % capacity) {
             if (key.equals(keys[i])) {
+                value = values[i];
                 values[i] = null;
                 mark[i] = -1;
                 size--;
+                return value;
             }
         }
+        throw new NoSuchElementException("Нет такого элемента!");
     }
 
     @Override
